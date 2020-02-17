@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/activity_lista_produtores_texto_nome_produtor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="digite o nome do produtor" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/activity_lista_produtores_botao_busca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Burscar"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_lista_produtores_titulo_feira"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feiras que o produtor vai participar"
+                android:textStyle="bold"/>
+
+            <ListView
+                android:id="@+id/activity_lista_produtores_lista_feiras"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity_lista_produtores_titulo_produto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Produtos que o produtor vende"
+                android:textStyle="bold"/>
+
+            <ListView
+                android:id="@+id/activity_lista_produtores_lista_produtos"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
