@@ -2,12 +2,17 @@ package com.example.diadefeira;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.diadefeira.adapter.ListaFeirasAdapter;
+import com.example.diadefeira.modelo.DetalhesFeira;
 import com.example.diadefeira.task.FeirasTask;
 
 public class ListaFeirasActivity extends AppCompatActivity {
@@ -46,5 +51,27 @@ public class ListaFeirasActivity extends AppCompatActivity {
                 feirasTask.execute();
             }
         });
+
+        listViewFeiras.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
+                TextView campoId = item.findViewById(R.id.item_lista_feiras_id);
+                TextView campoNome = item.findViewById(R.id.item_lista_feiras_nome);
+                TextView campoData = item.findViewById(R.id.item_lista_feiras_data);
+                TextView campoLocal = item.findViewById(R.id.item_lista_feiras_local);
+
+                DetalhesFeira feira = new DetalhesFeira(
+                        Long.parseLong(campoId.getText().toString()),
+                        campoNome.getText().toString(),
+                        campoLocal.getText().toString(),
+                        campoData.getText().toString()
+                );
+
+                Intent intentVaiParaDetalhesDaFeira = new Intent(ListaFeirasActivity.this, DetalhesDaFeiraActivity.class);
+                intentVaiParaDetalhesDaFeira.putExtra("feira", feira);
+                startActivity(intentVaiParaDetalhesDaFeira);
+            }
+        });
+
     }
 }

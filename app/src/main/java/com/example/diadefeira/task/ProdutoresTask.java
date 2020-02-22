@@ -62,15 +62,12 @@ public class ProdutoresTask extends AsyncTask<Void, Void, String> {
 
             detalhesProdutoreFeiras = ProdutorFeiraJsonParcer.parseDados(resposta);
             detalhesProdutoreProdutos = ProdutorProdutoJsonParcer.parseDados(resposta);
-            System.out.println("Teste --------------------------------");
-            System.out.println(detalhesProdutoreProdutos.toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //return detalhesProdutoreFeiras;
         return "ok";
     }
 

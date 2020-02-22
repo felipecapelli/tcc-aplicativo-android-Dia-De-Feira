@@ -1,12 +1,22 @@
 package com.example.diadefeira.modelo;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class DetalhesFeira {
+public class DetalhesFeira implements Serializable {
     private Long id;
     private String nome;
     private String endereco;
     private String data;
+
+    public DetalhesFeira(){}
+
+    public DetalhesFeira(Long id, String nome, String endereco, String data){
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.data = data;
+    }
 
     public Long getId() {
         return id;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_detalhes_da_feira_lista_produtores_titulo_produtor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Produtor"
+        android:textStyle="bold"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/activity_detalhes_da_feira_lista_produtores_email_produtor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email do produtor"
+        android:visibility="gone"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/activity_detalhes_da_feira_lista_produtores_nome_produtor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nome do produtor"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:textSize="20sp"/>
+
+</LinearLayout>
