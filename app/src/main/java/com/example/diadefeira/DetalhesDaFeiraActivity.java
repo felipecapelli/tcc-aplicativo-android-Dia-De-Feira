@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.diadefeira.modelo.DetalhesFeira;
+import com.example.diadefeira.modelo.DetalhesFeiraProduto;
 import com.example.diadefeira.task.DetalhesFeiraTask;
 
 public class DetalhesDaFeiraActivity extends AppCompatActivity {
@@ -40,10 +42,29 @@ public class DetalhesDaFeiraActivity extends AppCompatActivity {
             localFeira.setText(feira.getEndereco());
             dataFeira.setText(feira.getData());
 
-            System.out.println("teste --------------------------------------");
             DetalhesFeiraTask detalhesFeiraTask = new DetalhesFeiraTask(feira.getId(), listaProdutos, listaProdutores, DetalhesDaFeiraActivity.this);
             detalhesFeiraTask.execute();
         }
+
+        listaProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
+                if (feira != null){
+                    DetalhesFeiraProduto detalhesFeiraProduto = new DetalhesFeiraProduto();
+                    TextView textViewIdProduto = item.findViewById(R.id.activity_detalhes_da_feira_lista_produtores_id_produto);
+                    detalhesFeiraProduto.setId(Long.parseLong(textViewIdProduto.getText().toString()));
+
+                    TextView textViewNomeProduto = item.findViewById(R.id.activity_detalhes_da_feira_lista_produtores_nome_produto);
+                    detalhesFeiraProduto.setNome(textViewNomeProduto.getText().toString());
+
+                    Intent intentVaiParaDetalhesDoProduto = new Intent(DetalhesDaFeiraActivity.this, DetalhesDoProdutoActivity.class);
+                    intentVaiParaDetalhesDoProduto.putExtra("feira", feira);
+
+                    intentVaiParaDetalhesDoProduto.putExtra("produto", detalhesFeiraProduto);
+                    startActivity(intentVaiParaDetalhesDoProduto);
+                }
+            }
+        });
 
     }
 }

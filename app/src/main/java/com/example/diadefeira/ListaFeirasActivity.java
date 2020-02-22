@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.diadefeira.adapter.ListaFeirasAdapter;
 import com.example.diadefeira.modelo.DetalhesFeira;
 import com.example.diadefeira.task.FeirasTask;
 

@@ -4,13 +4,12 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.ListView;
 
-import com.example.diadefeira.DetalhesDaFeiraActivity;
-import com.example.diadefeira.adapter.ListaFeirasProdutoresAdapter;
-import com.example.diadefeira.adapter.ListaFeirasProdutosAdapter;
+import com.example.diadefeira.DetalhesDoProdutoActivity;
+import com.example.diadefeira.adapter.ListaProdutosProdutoresAdapter;
 import com.example.diadefeira.modelo.DetalhesFeiraProduto;
-import com.example.diadefeira.modelo.DetalhesFeiraProdutor;
+import com.example.diadefeira.modelo.DetalhesProdutoProdutorProdutos;
+import com.example.diadefeira.parcer.DetalhesProdutoJsonParcer;
 import com.example.diadefeira.parcer.FeiraProdutoJsonParcer;
-import com.example.diadefeira.parcer.FeiraProdutorJsonParcer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,30 +19,28 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class DetalhesFeiraTask extends AsyncTask<Void, Void, String> {
-    private final ListView listViewProdutos;
-    private final ListView listViewProdutores;
+public class DetalhesProdutoTask  extends AsyncTask<Void, Void, String> {
+
+    private final Long feiraid;
+    private final DetalhesFeiraProduto produto;
+    private final ListView listaDetalhes;
     private final Context contexto;
-    private final Long idFeira;
-
     private String resposta;
-    private List<DetalhesFeiraProduto> detalhesFeirasProdutos;
-    private List<DetalhesFeiraProdutor> detalhesFeirasProdutores;
+    private List<DetalhesProdutoProdutorProdutos> detalhesProdutoProdutorProdutos;
 
-    public DetalhesFeiraTask(Long idFeira, ListView listaProdutos, ListView listaProdutores, Context contexto) {
-        this.idFeira = idFeira;
-        this.listViewProdutos = listaProdutos;
-        this.listViewProdutores = listaProdutores;
-        this.contexto = contexto;
+    public DetalhesProdutoTask(Long id, DetalhesFeiraProduto produto, ListView listaDetalhes, DetalhesDoProdutoActivity detalhesDoProdutoActivity) {
+        this.feiraid = id;
+        this.produto = produto;
+        this.listaDetalhes = listaDetalhes;
+        this.contexto = detalhesDoProdutoActivity;
     }
-
 
     @Override
     protected String doInBackground(Void... voids) {
         HttpURLConnection connection = null;
         BufferedReader reader = null;
         try {
-            URL url = new URL("http://10.0.0.103:8080/produtorProdutoFeira/detalhesDaFeira/"+idFeira);
+            URL url = new URL("http://10.0.0.103:8080/produtorProdutoFeira/produtoresNumaFeiraProdutoEspecifico/"+feiraid+"/"+produto.getId());
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
@@ -61,8 +58,7 @@ public class DetalhesFeiraTask extends AsyncTask<Void, Void, String> {
 
             resposta = stringBuilder.toString();
 
-            detalhesFeirasProdutos = FeiraProdutoJsonParcer.parseDados(resposta);
-            detalhesFeirasProdutores = FeiraProdutorJsonParcer.parseDados(resposta);
+            detalhesProdutoProdutorProdutos = DetalhesProdutoJsonParcer.parseDados(resposta);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -74,10 +70,7 @@ public class DetalhesFeiraTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String ok) {
-        ListaFeirasProdutosAdapter listaProdutosAdapter = new ListaFeirasProdutosAdapter(contexto, detalhesFeirasProdutos);
-        listViewProdutos.setAdapter(listaProdutosAdapter);
-
-        ListaFeirasProdutoresAdapter listaProdutoresAdapter = new ListaFeirasProdutoresAdapter(contexto, detalhesFeirasProdutores);
-        listViewProdutores.setAdapter(listaProdutoresAdapter);
+        ListaProdutosProdutoresAdapter listaProdutosProdutoresAdapter = new ListaProdutosProdutoresAdapter(contexto, detalhesProdutoProdutorProdutos);
+        listaDetalhes.setAdapter(listaProdutosProdutoresAdapter);
     }
 }
