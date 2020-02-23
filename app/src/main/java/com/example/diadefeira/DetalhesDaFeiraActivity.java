@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.diadefeira.modelo.DetalhesFeira;
 import com.example.diadefeira.modelo.DetalhesFeiraProduto;
+import com.example.diadefeira.modelo.DetalhesFeiraProdutor;
 import com.example.diadefeira.task.DetalhesFeiraTask;
 
 public class DetalhesDaFeiraActivity extends AppCompatActivity {
@@ -46,6 +47,7 @@ public class DetalhesDaFeiraActivity extends AppCompatActivity {
             detalhesFeiraTask.execute();
         }
 
+        //Clicar em um dos produtos
         listaProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
@@ -66,5 +68,26 @@ public class DetalhesDaFeiraActivity extends AppCompatActivity {
             }
         });
 
+        //Clicar em um dos produtores
+        listaProdutores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
+                if (feira != null){
+                    DetalhesFeiraProdutor detalhesFeiraProdutor = new DetalhesFeiraProdutor();
+
+                    TextView textViewEmailProdutor = item.findViewById(R.id.activity_detalhes_da_feira_lista_produtores_email_produtor);
+                    detalhesFeiraProdutor.setEmail(textViewEmailProdutor.getText().toString());
+
+                    TextView textViewNomeProdutor = item.findViewById(R.id.activity_detalhes_da_feira_lista_produtores_nome_produtor);
+                    detalhesFeiraProdutor.setNome(textViewNomeProdutor.getText().toString());
+
+                    Intent intentVaiParaDetalhesDoProdutor = new Intent(DetalhesDaFeiraActivity.this, DetalhesDoProdutorActivity.class);
+                    intentVaiParaDetalhesDoProdutor.putExtra("feira", feira);
+
+                    intentVaiParaDetalhesDoProdutor.putExtra("produtor", detalhesFeiraProdutor);
+                    startActivity(intentVaiParaDetalhesDoProdutor);
+                }
+            }
+        });
     }
 }

@@ -1,6 +1,8 @@
 package com.example.diadefeira.modelo;
 
-public class DetalhesFeiraProdutor {
+import java.io.Serializable;
+
+public class DetalhesFeiraProdutor implements Serializable {
     private String email;
     private String nome;
 
