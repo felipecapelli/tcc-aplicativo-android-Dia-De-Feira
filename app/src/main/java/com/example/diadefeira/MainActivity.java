@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton botaoFeiras;
     private ImageButton botaoProdutos;
     private ImageButton botaoProdutores;
+    private ImageButton botaoReservas;
 
 
     @Override
@@ -43,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent relatorioProdutores = new Intent(MainActivity.this, ListaProdutoresActivity.class);
                 startActivity(relatorioProdutores);
+            }
+        });
+
+        botaoReservas = (ImageButton) findViewById(R.id.activity_main_botao_reservas);
+        botaoReservas.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+               Intent relatoriosReservas = new Intent (MainActivity.this, LoginActivity.class);
+               startActivity(relatoriosReservas);
             }
         });
     }

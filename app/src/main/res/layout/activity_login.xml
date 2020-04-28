@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_login_titulo_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"/>
+
+    <EditText
+        android:id="@+id/activity_login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="digite o produto" />
+
+    <TextView
+        android:id="@+id/activity_login_titulo_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senha"/>
+
+    <EditText
+        android:id="@+id/activity_login_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="digite o local" />
+
+    <Button
+        android:id="@+id/activity_login_botao_enviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar"/>
+
+    <TextView
+        android:id="@+id/activity_login_titulo_email_ou_senha_incorretos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario ou senha Incorretos!! Tente novamente"
+        android:visibility="gone"/>
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_inserir_nova_reserva_titulo_cliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:text="Cliente"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/activity_inserir_nova_reserva_email_cliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email_cliente"/>
+
+    <TextView
+        android:id="@+id/activity_inserir_nova_reserva_titulo_Produtor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:text="Produtor"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/activity_inserir_nova_reserva_email_produtor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email_produtor"/>
+
+    <TextView
+        android:id="@+id/activity_inserir_nova_reserva_titulo_feira"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
+        android:text="Feira"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/activity_inserir_nova_reserva_id_feira"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id_feira"/>
+
+    <TextView
+        android:id="@+id/activity_inserir_nova_reserva_titulo_lista_produtos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Produtos escolhidos"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/activity_inserir_nova_reserva_lista_produtos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lista_produtors"/>
+
+    <Button
+        android:id="@+id/activity_inserir_nova_reserva_botao_salvar_reserva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salvar Reserva"/>
+
+</LinearLayout>

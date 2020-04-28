@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_lista_compras_reservas_titulo_cliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="8dp"
+            android:text="Cliente"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/item_lista_compras_reservas_botao_nova_reserva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nova Reserva"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_lista_compras_reservas_id_cliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id_cliente"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/item_lista_compras_reservas_nome_cliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="8dp"
+            android:text="nome_cliente"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_lista_compras_reservas_titulo_reservas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reservas"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:id="@+id/activity_lista_compras_reservas_lista_reservas"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/activity_lista_compras_reservas_titulo_compras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compras"
+            android:textStyle="bold"/>
+
+        <ListView
+            android:id="@+id/activity_lista_compras_reservas_lista_compras"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_weight="1"/>
+</LinearLayout>
