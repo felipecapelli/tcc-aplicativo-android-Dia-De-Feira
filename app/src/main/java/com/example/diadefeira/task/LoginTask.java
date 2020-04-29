@@ -43,7 +43,6 @@ public class LoginTask extends AsyncTask<Void, Void, String > {
 
     @Override
     protected String doInBackground(Void... voids) {
-        //textViewSenhaOuEmailIncorreto.setVisibility(View.INVISIBLE);
 
         String respostaObtidaComPost = "";
         String json = LonginConverter.converterParaJSON(this.usuario);

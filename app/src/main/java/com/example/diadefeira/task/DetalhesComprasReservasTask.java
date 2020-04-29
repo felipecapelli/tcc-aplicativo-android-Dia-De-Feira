@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.diadefeira.DetalhesComprasReservas;
 import com.example.diadefeira.adapter.DetalhesCompraReservaAdapter;
+import com.example.diadefeira.modelo.DadosToken;
 import com.example.diadefeira.modelo.DetalhesCompraReserva;
 import com.example.diadefeira.parcer.DetalhesCompraReservaParcer;
 
@@ -21,6 +22,7 @@ import java.net.URL;
 import java.util.List;
 
 public class DetalhesComprasReservasTask extends AsyncTask<Void, Void, DetalhesCompraReserva> {
+    private DadosToken dadosToken;
     private Long idCompraReserva;
 
     private TextView textViewIdCompraReserva;
@@ -41,11 +43,12 @@ public class DetalhesComprasReservasTask extends AsyncTask<Void, Void, DetalhesC
     private String resposta;
     private DetalhesCompraReserva detalhesCompraReserva;
 
-    public DetalhesComprasReservasTask(Long idCompraReserva, TextView textViewIdCompraReserva, TextView textViewUsuarioEmail,
+    public DetalhesComprasReservasTask(DadosToken dadosToken, Long idCompraReserva, TextView textViewIdCompraReserva, TextView textViewUsuarioEmail,
                                        EditText editTextUsuarioNome, TextView textViewProdutorEmail, EditText editTextProdutorNome,
                                        TextView textViewIdFeira, EditText editTextNomeFeira, EditText editTextEnderecoFeira,
                                        EditText editTextDataFeira, EditText editTextDataReserva, EditText editTextDataVenda,
                                        TextView textViewDataVendaTitulo, ListView listViewListaDeProdutos, Context contexto) {
+        this.dadosToken = dadosToken;
         this.idCompraReserva = idCompraReserva;
         this.textViewIdCompraReserva = textViewIdCompraReserva;
         this.textViewUsuarioEmail = textViewUsuarioEmail;
@@ -73,6 +76,7 @@ public class DetalhesComprasReservasTask extends AsyncTask<Void, Void, DetalhesC
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
+            connection.setRequestProperty("Authorization", dadosToken.getTipo()+" "+dadosToken.getToken());
             connection.connect();
 
             //-----------------------------------------------------------------

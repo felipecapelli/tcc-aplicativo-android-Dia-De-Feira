@@ -8,9 +8,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.diadefeira.modelo.DadosToken;
 import com.example.diadefeira.task.DetalhesComprasReservasTask;
 
 public class DetalhesComprasReservas extends AppCompatActivity {
+    private DadosToken dadosToken;
     private TextView TextViewIdCompraReserva;
     private TextView TextViewUsuarioEmail;
     private EditText editTextUsuarioNome;
@@ -33,6 +35,7 @@ public class DetalhesComprasReservas extends AppCompatActivity {
 
         Intent intent = getIntent();
         Long idCompraReserva = (Long) intent.getSerializableExtra("idCompraReserva");
+        dadosToken = (DadosToken) intent.getSerializableExtra("dadosToken") ;
 
         TextViewIdCompraReserva = (TextView) findViewById(R.id.activity_detalhes_compras_reservas_id_compra_reserva);
         TextViewUsuarioEmail = (TextView) findViewById(R.id.activity_detalhes_compras_reservas_email_cliente);
@@ -56,7 +59,7 @@ public class DetalhesComprasReservas extends AppCompatActivity {
 
         listViewListaDeProdutos = (ListView) findViewById(R.id.activity_detalhes_compras_reservas_lista_produtos);
 
-        DetalhesComprasReservasTask detalhesComprasReservasTask = new DetalhesComprasReservasTask(idCompraReserva,
+        DetalhesComprasReservasTask detalhesComprasReservasTask = new DetalhesComprasReservasTask(dadosToken, idCompraReserva,
                 TextViewIdCompraReserva, TextViewUsuarioEmail, editTextUsuarioNome, TextViewProdutorEmail,
                 editTextProdutorNome, TextViewIdFeira, editTextNomeFeira, editTextEnderecoFeira, editTextDataFeira,
                 editTextDataReserva, editTextDataVenda, textViewDataVendaTitulo, listViewListaDeProdutos, DetalhesComprasReservas.this);

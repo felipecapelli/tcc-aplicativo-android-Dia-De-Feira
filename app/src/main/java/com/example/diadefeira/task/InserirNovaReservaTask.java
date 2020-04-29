@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.diadefeira.converter.InserirNovaReservaConverter;
+import com.example.diadefeira.modelo.DadosToken;
 import com.example.diadefeira.modelo.DetalhesCompraReserva;
 import com.example.diadefeira.modelo.DetalhesCompraReservaProdutos;
 
@@ -25,11 +26,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class InserirNovaReservaTask  extends AsyncTask<Void, Void, String> {
+    private DadosToken dadosToken;
     private DetalhesCompraReserva detalhesCompraReserva;
     private String[] listaCodigosDosProdutos;
     private Context contexto;
 
-    public InserirNovaReservaTask(DetalhesCompraReserva detalhesCompraReserva, String[] listaCodigosDosProdutos, Context contexto) {
+    public InserirNovaReservaTask(DadosToken dadosToken, DetalhesCompraReserva detalhesCompraReserva, String[] listaCodigosDosProdutos, Context contexto) {
+        this.dadosToken = dadosToken;
         this.detalhesCompraReserva = detalhesCompraReserva;
         this.listaCodigosDosProdutos = listaCodigosDosProdutos;
         this.contexto = contexto;
@@ -45,6 +48,7 @@ public class InserirNovaReservaTask  extends AsyncTask<Void, Void, String> {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
+            connection.setRequestProperty("Authorization", dadosToken.getTipo()+" "+dadosToken.getToken());
             connection.setRequestMethod("POST");
 
             connection.setDoOutput(true);

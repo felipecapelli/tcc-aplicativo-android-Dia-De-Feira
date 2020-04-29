@@ -16,8 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="digite o produto" />
+        android:inputType="textPersonName"/>
 
     <TextView
         android:id="@+id/activity_login_titulo_senha"
@@ -30,8 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="digite o local" />
+        android:inputType="textPersonName"/>
 
     <Button
         android:id="@+id/activity_login_botao_enviar"

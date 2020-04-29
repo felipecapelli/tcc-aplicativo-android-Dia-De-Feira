@@ -1,5 +1,6 @@
 package com.example.diadefeira;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,10 +8,12 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.diadefeira.modelo.DadosToken;
 import com.example.diadefeira.modelo.DetalhesCompraReserva;
 import com.example.diadefeira.task.InserirNovaReservaTask;
 
 public class InserirNovaReservaActivity extends AppCompatActivity {
+    private DadosToken dadosToken;
     private EditText editTextUsuarioEmail;
     private EditText editTextProdutorEmail;
     private EditText editTextIdFeira;
@@ -28,6 +31,9 @@ public class InserirNovaReservaActivity extends AppCompatActivity {
         editTextListaProdutos = (EditText) findViewById(R.id.activity_inserir_nova_reserva_lista_produtos);
         botaoSalvarNovaReserva = (Button) findViewById(R.id.activity_inserir_nova_reserva_botao_salvar_reserva);
 
+        Intent intent = getIntent();
+        dadosToken = (DadosToken) intent.getSerializableExtra("dadosToken");
+
         botaoSalvarNovaReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +45,7 @@ public class InserirNovaReservaActivity extends AppCompatActivity {
 
                 String[] listaCodigosDosProdutos = editTextListaProdutos.getText().toString().split(";");
 
-                InserirNovaReservaTask inserirNovaReservaTask = new InserirNovaReservaTask(detalhesCompraReserva, listaCodigosDosProdutos, InserirNovaReservaActivity.this);
+                InserirNovaReservaTask inserirNovaReservaTask = new InserirNovaReservaTask(dadosToken, detalhesCompraReserva, listaCodigosDosProdutos, InserirNovaReservaActivity.this);
 
                 inserirNovaReservaTask.execute();
 

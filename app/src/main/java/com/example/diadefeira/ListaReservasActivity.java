@@ -58,7 +58,7 @@ public class ListaReservasActivity extends AppCompatActivity {
         emailCliente = usuario.getEmail();
 
         dadosToken = (DadosToken) intent.getSerializableExtra("dadosToken");
-        textViewNomeCliente.setText(dadosToken.getTipo());
+        textViewNomeCliente.setText(dadosToken.getTipo()); //mudar isso aqui depois
 
         //if(!(emailCliente.isEmpty() && nomeCliente.isEmpty())) {
         if(!(emailCliente.isEmpty())) {
@@ -77,6 +77,7 @@ public class ListaReservasActivity extends AppCompatActivity {
 
                 Intent intentVaiParaDetalhesComprasReservas = new Intent(ListaReservasActivity.this, DetalhesComprasReservas.class);
                 intentVaiParaDetalhesComprasReservas.putExtra("idCompraReserva", idCompraReserva);
+                intentVaiParaDetalhesComprasReservas.putExtra("dadosToken", dadosToken);
 
                 startActivity(intentVaiParaDetalhesComprasReservas);
             }
@@ -90,6 +91,7 @@ public class ListaReservasActivity extends AppCompatActivity {
 
                 Intent intentVaiParaDetalhesComprasReservas = new Intent(ListaReservasActivity.this, DetalhesComprasReservas.class);
                 intentVaiParaDetalhesComprasReservas.putExtra("idCompraReserva", idCompraReserva);
+                intentVaiParaDetalhesComprasReservas.putExtra("dadosToken", dadosToken);
 
                 startActivity(intentVaiParaDetalhesComprasReservas);
             }
@@ -99,6 +101,7 @@ public class ListaReservasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent inserirNovaReserva = new Intent(ListaReservasActivity.this, InserirNovaReservaActivity.class);
+                inserirNovaReserva.putExtra("dadosToken", dadosToken);
                 startActivity(inserirNovaReserva);
             }
         });
