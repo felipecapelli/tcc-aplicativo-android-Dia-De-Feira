@@ -10,6 +10,9 @@ public class DetalhesResumidoCompras {
     private String nomeProdutor;
     private String dataVenda;
 
+    private String emailCliente;
+    private String nomeCliente;
+
     public Long getIdCompraReserva() {
         return idCompraReserva;
     }
@@ -56,5 +59,21 @@ public class DetalhesResumidoCompras {
 
     public void setDataVenda(String dataVenda) {
         this.dataVenda = dataVenda;
+    }
+
+    public String getEmailCliente() {
+        return emailCliente;
+    }
+
+    public void setEmailCliente(String emailCliente) {
+        this.emailCliente = emailCliente;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 }

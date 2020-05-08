@@ -25,8 +25,8 @@ public class InserirNovaReservaConverter {
 
         try{
             js.object();
-            js.key("usuario").value(detalhesCompraReserva.getUsuarioEmail());
-            js.key("produtor").value(detalhesCompraReserva.getProdutorEmail());
+            js.key("emailUsuario").value(detalhesCompraReserva.getUsuarioEmail());
+            js.key("emailProdutor").value(detalhesCompraReserva.getProdutorEmail());
             js.key("IdFeira").value(detalhesCompraReserva.getIdFeira().toString());
             js.key("produtosDto").array();
             for (DetalhesCompraReservaProdutos detalhesCompraReservaProdutos : detalhesCompraReserva.getListaDetalhesCompraReservaProdutos()) {

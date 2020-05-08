@@ -11,16 +11,27 @@
         android:text="id_compra_reserva"
         android:visibility="gone"/>
 
-    <TextView
-        android:id="@+id/activity_detalhes_compras_reservas_titulo_cliente"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingTop="8dp"
-        android:text="Cliente"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/activity_detalhes_compras_reservas_titulo_cliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="8dp"
+            android:text="Cliente"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/activity_detalhes_compras_reservas_botao_vender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vender a reserva"
+            android:visibility="gone" />
+
+    </LinearLayout>
     <TextView
         android:id="@+id/activity_detalhes_compras_reservas_email_cliente"
         android:layout_width="wrap_content"

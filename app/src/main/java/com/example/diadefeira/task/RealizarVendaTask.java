@@ -2,47 +2,35 @@ package com.example.diadefeira.task;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.diadefeira.InserirNovaReservaActivity;
-import com.example.diadefeira.converter.InserirNovaReservaConverter;
+import com.example.diadefeira.DetalhesComprasReservas;
+import com.example.diadefeira.converter.RealizarVendaConverter;
 import com.example.diadefeira.modelo.DadosToken;
 import com.example.diadefeira.modelo.DetalhesCompraReserva;
-import com.example.diadefeira.modelo.DetalhesCompraReservaProdutos;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
-public class InserirNovaReservaTask  extends AsyncTask<Void, Void, String> {
+public class RealizarVendaTask  extends AsyncTask<Void, Void, String> {
+    private long idCompraReserva;
     private DadosToken dadosToken;
-    private DetalhesCompraReserva detalhesCompraReserva;
-    private String[] listaCodigosDosProdutos;
     private Context contexto;
 
-    public InserirNovaReservaTask(DadosToken dadosToken, DetalhesCompraReserva detalhesCompraReserva, String[] listaCodigosDosProdutos, Context contexto) {
+    public RealizarVendaTask(long idCompraReserva, DadosToken dadosToken, Context contexto) {
+        this.idCompraReserva = idCompraReserva;
         this.dadosToken = dadosToken;
-        this.detalhesCompraReserva = detalhesCompraReserva;
-        this.listaCodigosDosProdutos = listaCodigosDosProdutos;
         this.contexto = contexto;
     }
 
     @Override
     protected String doInBackground(Void... voids) {
         String respostaObtidaComPost = "";
-        String json = InserirNovaReservaConverter.converterParaJSON(this.detalhesCompraReserva, this.listaCodigosDosProdutos);
+        String json = RealizarVendaConverter.converterParaJSON(this.idCompraReserva);
 
         try {
             URL url = new URL("http://10.0.0.103:8080/CompraReserva");
@@ -50,7 +38,7 @@ public class InserirNovaReservaTask  extends AsyncTask<Void, Void, String> {
             connection.setRequestProperty("Content-type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
             connection.setRequestProperty("Authorization", dadosToken.getTipo()+" "+dadosToken.getToken());
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod("PUT");
 
             connection.setDoOutput(true);
 
@@ -70,9 +58,9 @@ public class InserirNovaReservaTask  extends AsyncTask<Void, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String respostaObtidaComPost) {
-        Toast.makeText(contexto, "Reserva Salva Com sucesso!", Toast.LENGTH_SHORT).show();
-        InserirNovaReservaActivity inserirNovaReservaActivity = (InserirNovaReservaActivity)contexto;
-        inserirNovaReservaActivity.finish();
+    protected void onPostExecute(String s) {
+        Toast.makeText(contexto, "Venda registrada", Toast.LENGTH_LONG).show();
+        DetalhesComprasReservas detalhesComprasReservas = (DetalhesComprasReservas) contexto;
+        detalhesComprasReservas.finish();
     }
 }

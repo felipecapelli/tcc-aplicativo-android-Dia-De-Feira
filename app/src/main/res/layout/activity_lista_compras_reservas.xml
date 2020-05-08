@@ -9,21 +9,25 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/item_lista_compras_reservas_titulo_cliente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingTop="8dp"
-            android:text="Cliente"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
         <Button
-            android:id="@+id/item_lista_compras_reservas_botao_nova_reserva"
+            android:id="@+id/item_lista_compras_reservas_botao_nova_reserva_venda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nova Reserva"/>
+
+        <Button
+            android:id="@+id/item_lista_compras_reservas_botao_nova_feira"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nova Feira"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/item_lista_compras_reservas_botao_participar_feira"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Participar de Feira"
+            android:visibility="gone"/>
 
 
         </LinearLayout>

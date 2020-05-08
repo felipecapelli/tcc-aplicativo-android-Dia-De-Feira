@@ -49,7 +49,7 @@
             android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/item_lista_compras_titulo_produtor"
+            android:id="@+id/item_lista_compras_titulo_produtor_usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
@@ -59,7 +59,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/item_lista_compras_email_produtor"
+            android:id="@+id/item_lista_compras_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
@@ -69,7 +69,7 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/item_lista_compras_nome_produtor"
+            android:id="@+id/item_lista_compras_nome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
@@ -78,7 +78,7 @@
             android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/item_lista_compras_titulo_data_compra"
+            android:id="@+id/item_lista_compras_titulo_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"

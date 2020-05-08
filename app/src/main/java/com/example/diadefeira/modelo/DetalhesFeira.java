@@ -18,6 +18,12 @@ public class DetalhesFeira implements Serializable {
         this.data = data;
     }
 
+    public DetalhesFeira(String nome, String endereco, String data){
+        this.nome = nome;
+        this.endereco = endereco;
+        this.data = data;
+    }
+
     public Long getId() {
         return id;
     }
@@ -42,5 +48,4 @@ public class DetalhesFeira implements Serializable {
     public void setData(String data) {
         this.data = data;
     }
-
 }

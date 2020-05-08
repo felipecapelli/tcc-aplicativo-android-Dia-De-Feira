@@ -4,12 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.diadefeira.modelo.DadosToken;
+import com.example.diadefeira.modelo.DetalhesCompraReserva;
+import com.example.diadefeira.modelo.ProdutorLogado;
+import com.example.diadefeira.modelo.Usuario;
+import com.example.diadefeira.modelo.UsuarioLogado;
 import com.example.diadefeira.task.DetalhesComprasReservasTask;
+import com.example.diadefeira.task.RealizarVendaTask;
 
 public class DetalhesComprasReservas extends AppCompatActivity {
     private DadosToken dadosToken;
@@ -25,8 +32,13 @@ public class DetalhesComprasReservas extends AppCompatActivity {
     private EditText editTextDataReserva;
     private EditText editTextDataVenda;
     private TextView textViewDataVendaTitulo;
+    private Button buttonVender;
 
     private ListView listViewListaDeProdutos;
+
+    private UsuarioLogado usuarioLogado;
+
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +48,14 @@ public class DetalhesComprasReservas extends AppCompatActivity {
         Intent intent = getIntent();
         Long idCompraReserva = (Long) intent.getSerializableExtra("idCompraReserva");
         dadosToken = (DadosToken) intent.getSerializableExtra("dadosToken") ;
+        usuario = (Usuario) intent.getSerializableExtra("usuario");
+        usuarioLogado = (UsuarioLogado) intent.getSerializableExtra("usuarioLogado");
+
+        buttonVender = (Button) findViewById(R.id.activity_detalhes_compras_reservas_botao_vender);
+        try{
+            ProdutorLogado produtorLogado = (ProdutorLogado) usuarioLogado;
+            buttonVender.setVisibility(View.VISIBLE);
+        } catch (ClassCastException e) {}
 
         TextViewIdCompraReserva = (TextView) findViewById(R.id.activity_detalhes_compras_reservas_id_compra_reserva);
         TextViewUsuarioEmail = (TextView) findViewById(R.id.activity_detalhes_compras_reservas_email_cliente);
@@ -64,6 +84,14 @@ public class DetalhesComprasReservas extends AppCompatActivity {
                 editTextProdutorNome, TextViewIdFeira, editTextNomeFeira, editTextEnderecoFeira, editTextDataFeira,
                 editTextDataReserva, editTextDataVenda, textViewDataVendaTitulo, listViewListaDeProdutos, DetalhesComprasReservas.this);
         detalhesComprasReservasTask.execute();
+
+        buttonVender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RealizarVendaTask realizarVendaTask = new RealizarVendaTask(Long.parseLong(TextViewIdCompraReserva.getText().toString()), dadosToken, DetalhesComprasReservas.this);
+                realizarVendaTask.execute();
+            }
+        });
 
     }
 }

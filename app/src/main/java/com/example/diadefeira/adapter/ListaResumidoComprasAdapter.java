@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.example.diadefeira.R;
 import com.example.diadefeira.modelo.DetalhesResumidoCompras;
+import com.example.diadefeira.modelo.ProdutorLogado;
+import com.example.diadefeira.modelo.UsuarioLogado;
 
 import java.util.List;
 
@@ -16,10 +18,12 @@ public class ListaResumidoComprasAdapter  extends BaseAdapter {
 
     private final Context contexto;
     private final List<DetalhesResumidoCompras> detalhesResumidoCompras;
+    private UsuarioLogado usuarioLogado;
 
-    public ListaResumidoComprasAdapter(Context contexto, List<DetalhesResumidoCompras> detalhesResumidoCompras) {
+    public ListaResumidoComprasAdapter(Context contexto, List<DetalhesResumidoCompras> detalhesResumidoCompras, UsuarioLogado usuarioLogado) {
         this.contexto = contexto;
         this.detalhesResumidoCompras = detalhesResumidoCompras;
+        this.usuarioLogado = usuarioLogado;
     }
 
     @Override
@@ -57,14 +61,27 @@ public class ListaResumidoComprasAdapter  extends BaseAdapter {
         TextView textViewNomeFeira = (TextView) view.findViewById(R.id.item_lista_compras_nome_feira);
         textViewNomeFeira.setText(compraResumida.getNomeFeira());
 
-        TextView textViewEmailProdutor = (TextView) view.findViewById(R.id.item_lista_compras_email_produtor);
-        textViewEmailProdutor.setText(compraResumida.getEmailProdutor());
-
-        TextView textViewNomeProdutor = (TextView) view.findViewById(R.id.item_lista_compras_nome_produtor);
-        textViewNomeProdutor.setText(compraResumida.getNomeProdutor());
-
         TextView textViewDataReserva = (TextView) view.findViewById(R.id.item_lista_compras_data_venda);
         textViewDataReserva.setText(compraResumida.getDataVenda());
+
+        try{
+            ProdutorLogado produtorLogado = (ProdutorLogado) usuarioLogado;
+
+            TextView textViewEmailProdutor = (TextView) view.findViewById(R.id.item_lista_compras_email);
+            textViewEmailProdutor.setText(compraResumida.getEmailCliente());
+
+            TextView textViewNomeProdutor = (TextView) view.findViewById(R.id.item_lista_compras_nome);
+            textViewNomeProdutor.setText(compraResumida.getNomeCliente());
+
+            TextView textViewTituloUsuarioOuProdutor = view.findViewById(R.id.item_lista_compras_titulo_produtor_usuario);
+            textViewTituloUsuarioOuProdutor.setText("Cliente");
+        }catch(ClassCastException e){
+            TextView textViewEmailProdutor = (TextView) view.findViewById(R.id.item_lista_compras_email);
+            textViewEmailProdutor.setText(compraResumida.getEmailProdutor());
+
+            TextView textViewNomeProdutor = (TextView) view.findViewById(R.id.item_lista_compras_nome);
+            textViewNomeProdutor.setText(compraResumida.getNomeProdutor());
+        }
 
         return view;
     }

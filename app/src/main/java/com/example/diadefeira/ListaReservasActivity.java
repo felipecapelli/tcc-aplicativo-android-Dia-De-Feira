@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,24 +13,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diadefeira.modelo.DadosToken;
 import com.example.diadefeira.modelo.Usuario;
-import com.example.diadefeira.task.DetalhesFeiraTask;
-import com.example.diadefeira.task.ListaComprasReservasTask;
-
-import org.w3c.dom.Text;
+import com.example.diadefeira.modelo.UsuarioLogado;
+import com.example.diadefeira.task.BuscaUsuarioLogadoECarregaListasTask;
 
 public class ListaReservasActivity extends AppCompatActivity {
-    private String emailCliente;
-    private String nomeCliente;
-
     private TextView textViewEmailCliente;
     private TextView textViewNomeCliente;
     private ListView listaReservas;
     private ListView listaCompras;
 
-    private Button botaoNovaReserva;
+    private Button botaoNovaReservaVenda;
+    private Button botaoNovaFeira;
+    private Button botaoParticiparFeira;
 
     private Usuario usuario;
     private DadosToken dadosToken;
+    private UsuarioLogado usuarioOuProdutorLogado;
 
 
     @Override
@@ -46,28 +43,21 @@ public class ListaReservasActivity extends AppCompatActivity {
 
         textViewEmailCliente = findViewById(R.id.item_lista_compras_reservas_id_cliente);
         textViewNomeCliente = findViewById(R.id.item_lista_compras_reservas_nome_cliente);
-
         listaReservas = findViewById(R.id.activity_lista_compras_reservas_lista_reservas);
         listaCompras = findViewById(R.id.activity_lista_compras_reservas_lista_compras);
-
-        botaoNovaReserva = findViewById(R.id.item_lista_compras_reservas_botao_nova_reserva);
+        botaoNovaReservaVenda = findViewById(R.id.item_lista_compras_reservas_botao_nova_reserva_venda);
+        botaoNovaFeira = findViewById(R.id.item_lista_compras_reservas_botao_nova_feira);
+        botaoParticiparFeira = findViewById(R.id.item_lista_compras_reservas_botao_participar_feira);
 
         Intent intent = getIntent();
         usuario = (Usuario) intent.getSerializableExtra("usuario");
-        textViewEmailCliente.setText(usuario.getEmail());
-        emailCliente = usuario.getEmail();
-
         dadosToken = (DadosToken) intent.getSerializableExtra("dadosToken");
-        textViewNomeCliente.setText(dadosToken.getTipo()); //mudar isso aqui depois
+        textViewEmailCliente.setText(usuario.getEmail());
 
-        //if(!(emailCliente.isEmpty() && nomeCliente.isEmpty())) {
-        if(!(emailCliente.isEmpty())) {
-            textViewEmailCliente.setText(emailCliente);
-            //textViewNomeCliente.setText(nomeCliente);
 
-            ListaComprasReservasTask listaComprasReservasTask = new ListaComprasReservasTask(dadosToken.getToken(), emailCliente, listaReservas, listaCompras, ListaReservasActivity.this);
-            listaComprasReservasTask.execute();
-        }
+        BuscaUsuarioLogadoECarregaListasTask buscaUsuarioLogadoECarregaListasTask = new BuscaUsuarioLogadoECarregaListasTask(dadosToken, usuario, textViewNomeCliente, listaReservas, listaCompras, botaoNovaReservaVenda, botaoNovaFeira, botaoParticiparFeira,ListaReservasActivity.this);
+        buscaUsuarioLogadoECarregaListasTask.execute();
+
 
         listaReservas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,6 +68,8 @@ public class ListaReservasActivity extends AppCompatActivity {
                 Intent intentVaiParaDetalhesComprasReservas = new Intent(ListaReservasActivity.this, DetalhesComprasReservas.class);
                 intentVaiParaDetalhesComprasReservas.putExtra("idCompraReserva", idCompraReserva);
                 intentVaiParaDetalhesComprasReservas.putExtra("dadosToken", dadosToken);
+                intentVaiParaDetalhesComprasReservas.putExtra("usuario", usuario);
+                intentVaiParaDetalhesComprasReservas.putExtra("usuarioLogado", usuarioOuProdutorLogado);
 
                 startActivity(intentVaiParaDetalhesComprasReservas);
             }
@@ -92,12 +84,13 @@ public class ListaReservasActivity extends AppCompatActivity {
                 Intent intentVaiParaDetalhesComprasReservas = new Intent(ListaReservasActivity.this, DetalhesComprasReservas.class);
                 intentVaiParaDetalhesComprasReservas.putExtra("idCompraReserva", idCompraReserva);
                 intentVaiParaDetalhesComprasReservas.putExtra("dadosToken", dadosToken);
+                intentVaiParaDetalhesComprasReservas.putExtra("usuario", usuario);
 
                 startActivity(intentVaiParaDetalhesComprasReservas);
             }
         });
 
-        botaoNovaReserva.setOnClickListener(new View.OnClickListener() {
+        botaoNovaReservaVenda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent inserirNovaReserva = new Intent(ListaReservasActivity.this, InserirNovaReservaActivity.class);
@@ -105,5 +98,32 @@ public class ListaReservasActivity extends AppCompatActivity {
                 startActivity(inserirNovaReserva);
             }
         });
+
+        botaoNovaFeira.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inserirNovaFeira = new Intent(ListaReservasActivity.this, InserirNovaFeiraActivity.class);
+                inserirNovaFeira.putExtra("dadosToken", dadosToken);
+                startActivity(inserirNovaFeira);
+            }
+        });
+
+        botaoParticiparFeira.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent participarDeFeira = new Intent(ListaReservasActivity.this, ParticiparDeFeiraActivity.class);
+                participarDeFeira.putExtra("dadosToken", dadosToken);
+                startActivity(participarDeFeira);
+            }
+        });
+
+    }
+
+    public void setUsuarioOuProdutorLogado(UsuarioLogado usuarioOuProdutorLogado){
+        this.usuarioOuProdutorLogado = usuarioOuProdutorLogado;
+    }
+
+    public UsuarioLogado getUsuarioOuProdutorLogado(){
+        return this.usuarioOuProdutorLogado;
     }
 }

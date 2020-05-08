@@ -1,6 +1,7 @@
 package com.example.diadefeira;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,8 +49,6 @@ public class InserirNovaReservaActivity extends AppCompatActivity {
                 InserirNovaReservaTask inserirNovaReservaTask = new InserirNovaReservaTask(dadosToken, detalhesCompraReserva, listaCodigosDosProdutos, InserirNovaReservaActivity.this);
 
                 inserirNovaReservaTask.execute();
-
-                finish();
             }
         });
     }

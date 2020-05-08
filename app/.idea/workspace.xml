@@ -7,18 +7,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b745e49-b11b-466f-abb5-9c6c19f15997" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/InserirNovaFeiraActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/ParticiparDeFeiraActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/converter/InserirNovaFeiraConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/converter/ParticiparDeFeiraConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/converter/RealizarVendaConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/ParticiparDeFeira.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/ProdutorLogado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/UsuarioLogado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/parcer/BuscaUsuarioLogadoParcer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/BuscaUsuarioLogadoECarregaListasTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/InserirFeiraTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/ParticiparDeFeiraTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/RealizarVendaTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_inserir_nova_feira.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_participar_de_feira.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/DetalhesComprasReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/DetalhesComprasReservas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/InserirNovaReservaActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/InserirNovaReservaActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/ListaReservasActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/ListaReservasActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/data/LoginDataSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/data/LoginRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/data/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/data/model/LoggedInUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/DetalhesComprasReservasTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/DetalhesComprasReservasTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/adapter/ListaResumidoComprasAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/adapter/ListaResumidoComprasAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/adapter/ListaResumidoReservasAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/adapter/ListaResumidoReservasAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/converter/InserirNovaReservaConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/converter/InserirNovaReservaConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/DetalhesFeira.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/DetalhesFeira.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/DetalhesResumidoCompras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/DetalhesResumidoCompras.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/DetalhesResumidoReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/modelo/DetalhesResumidoReservas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/parcer/ResumidoComprasJsonParcer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/parcer/ResumidoComprasJsonParcer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/parcer/ResumidoReservasJsonParcer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/parcer/ResumidoReservasJsonParcer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/InserirNovaReservaTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/InserirNovaReservaTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/ListaComprasReservasTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/ListaComprasReservasTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/LoginTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/diadefeira/task/LoginTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_detalhes_compras_reservas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_detalhes_compras_reservas.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_inserir_nova_reserva.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_inserir_nova_reserva.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_lista_compras_reservas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_lista_compras_reservas.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_lista_compras_reservas_item_lista_compras.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_lista_compras_reservas_item_lista_compras.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_lista_compras_reservas_item_lista_reservas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_lista_compras_reservas_item_lista_reservas.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +83,8 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -66,9 +93,9 @@
       <recent name="com.example.diadefeira.task" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.diadefeira.parcer" />
       <recent name="com.example.diadefeira.converter" />
       <recent name="com.example.diadefeira.task" />
+      <recent name="com.example.diadefeira.parcer" />
     </key>
   </component>
   <component name="RunDashboard">

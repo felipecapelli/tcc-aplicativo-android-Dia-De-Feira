@@ -81,7 +81,7 @@ public class LoginTask extends AsyncTask<Void, Void, String > {
             relatoriosReservas.putExtra("usuario", usuario);
             relatoriosReservas.putExtra("dadosToken", dadosToken);
 
-            Toast.makeText(contexto, "Login Efetuado Com sucesso!  "+dadosToken.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(contexto, "Login Efetuado Com Sucesso!  ", Toast.LENGTH_SHORT).show();
 
             contexto.startActivity(relatoriosReservas);
         }else{
